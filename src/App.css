@@ -1,38 +1,151 @@
+body {
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: lime;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  display: flex;
+  flex: 1;
+  max-width: 100%;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding-left: 20px;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container.sidebar-collapsed {
+  margin-left: 0;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  padding: 20px;
+  border-right: 1px solid #555;
+  transition: transform 0.3s ease;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-215px);
+}
+
+.sidebar-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.add-note-button {
+  color: black;
+  width: 75%; /* Set the width to 70% */
+}
+
+.toggle-button {
+  background-color: lime;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.toggle-button:hover {
+  background-color: #45a049;
+}
+
+.note-item {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #444;
+  transition: background-color 0.3s;
+  width: 70%; /* Set the width to 70% */
+}
+
+.note-item:hover {
+  background-color: #555;
+}
+
+.editor {
+  flex: 1;
+  padding-left: 65px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  background-color: #333;
+  position: relative;
+}
+
+input[type="text"] {
+  width: calc(100% - 20px);
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #555;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: lime;
+}
+
+textarea {
+  width: 100%;
+  height: calc(100% - 100px);
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 16px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #444;
+  color: lime;
+}
+
+button {
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: lime;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.save-delete-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
 }
